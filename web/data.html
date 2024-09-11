@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据分析总览</title>
+    <link rel="icon" href="images/1.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/data.css"/>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/china.js"></script>
+    <script src="js/echarts-wordcloud.min.js"></script>
+    <script src="js/data.js"></script>
+</head>
+<body>
+    <header>
+        <h2>谛听鉴保医疗保险欺诈监测模型</h2>
+        <ul>
+            <li><a href="#">总览</a></li>
+            <li><a href="data2.html">指标分析</a></li>
+        </ul>
+        <div class="showTime"></div>
+        <script>
+            var t = null;
+            t = setTimeout(time, 1000); 
+            function time() {
+                clearTimeout(t); 
+                dt = new Date();
+                var year = dt.getFullYear();
+                var month = dt.getMonth() + 1;
+                var day = dt.getDate();
+                var hour = dt.getHours(); 
+                var minute = dt.getMinutes();
+                var second = dt.getSeconds(); 
+                document.querySelector(".showTime").innerHTML =
+                    year +
+                    "年" +
+                    month +
+                    "月" +
+                    day +
+                    "日" +
+                    hour +
+                    "时" +
+                    minute +
+                    "分" +
+                    second +
+                    "秒";
+                t = setTimeout(time, 1000); //设定定时器，循环运行
+            }
+        </script>
+    </header>
+    <!-- 页面主体 -->
+    <section class="mainbox">
+        <div class="column">
+            <div class=" panel">
+                <!-- <h3>柱形图</h3> -->
+                <div class="chart1"></div>
+            </div>
+            <div class="panel">
+                <!-- <h3>折线图</h3> -->
+                <div class="chart2"></div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="map">
+                <div class="map1"></div>
+                <div class="map2"></div>
+                <div class="chart3"></div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="panel">
+                <div class="chart4"></div>
+            </div>
+            <div class="panel">
+                <div class="chart5"></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

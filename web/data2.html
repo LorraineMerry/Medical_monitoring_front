@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据指标分析</title>
+    <link rel="icon" href="images/1.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/data2.css" />
+    <script src="js/echarts.min.js"></script>
+    <script src="js/china.js"></script>
+    <script src="js/jquery-3.7.1-min.js"></script>
+    <script src="js/data2.js"></script>
+</head>
+
+<body>
+        <header>
+            <h2>谛听鉴保医疗保险欺诈监测模型</h2>
+            <ul>
+                <li><a href="data.html">总览</a></li>
+                <li><a href="#">指标分析</a></li>
+            </ul>
+            <div class="showTime"></div>
+            <script>
+                var t = null;
+                t = setTimeout(time, 1000);
+                function time() {
+                    clearTimeout(t);
+                    dt = new Date();
+                    var year = dt.getFullYear();
+                    var month = dt.getMonth() + 1;
+                    var day = dt.getDate();
+                    var hour = dt.getHours();
+                    var minute = dt.getMinutes();
+                    var second = dt.getSeconds();
+                    document.querySelector(".showTime").innerHTML =
+                        year +
+                        "年" +
+                        month +
+                        "月" +
+                        day +
+                        "日" +
+                        hour +
+                        "时" +
+                        minute +
+                        "分" +
+                        second +
+                        "秒";
+                    t = setTimeout(time, 1000); //设定定时器，循环运行
+                }
+            </script>
+        </header>
+        <!-- 页面主体 -->
+        <section class="mainbox">
+            <!-- <div id="background">
+                        <canvas id="canvas"></canvas>
+                        <script>
+                            // 设置div背景的宽高
+                            background = document.getElementById("background")
+                            background.style.width = innerWidth + 'px'
+                            background.style.height = innerHeight + 'px'
+
+                            // 获取canvas对象
+                            var canvas = document.getElementById("canvas")
+                            // 获取画笔
+                            var ctx = canvas.getContext("2d")
+
+                            // 设置canvas宽高
+                            canvas.height = innerHeight
+                            canvas.width = innerWidth
+
+                            // 定义一个粒子数组
+                            var particlesArray = []
+                            // 定义页面内粒子的数量
+                            var count = parseInt(canvas.width / 80 * canvas.height / 80)
+
+
+                            // 定义粒子类
+                            class Particle {
+                                constructor(x, y) {
+                                    this.x = x
+                                    this.y = y
+                                    // x，y轴的移动速度  -0.5 -- 0.5
+                                    this.directionX = Math.random() - 0.5
+                                    this.directionY = Math.random() - 0.5
+                                }
+
+                                // 更新点的坐标
+                                update() {
+                                    this.x += this.directionX
+                                    this.y += this.directionY
+                                }
+
+                                // 绘制粒子
+                                draw() {
+                                    ctx.beginPath()
+                                    ctx.arc(this.x, this.y, 2, 0, Math.PI * 2)
+                                    ctx.closePath()
+                                    ctx.fillStyle = "white"
+                                    ctx.fill()
+                                }
+                            }
+
+                            // 创建粒子
+                            function createParticle() {
+                                // 生成一个点的随机坐标
+                                var x = Math.random() * innerWidth
+                                var y = Math.random() * innerHeight
+
+                                particlesArray.push(new Particle(x, y))
+                            }
+
+                            // 处理粒子
+                            // 先更新坐标，再绘制出来
+                            function handleParticle() {
+                                for (var i = 0; i < particlesArray.length; i++) {
+                                    var particle = particlesArray[i]
+                                    particle.update()
+                                    particle.draw()
+                                    // 超出范围就将这个粒子删除
+                                    if (particle.x < 0 || particle.x > canvas.width || particle.y < 0 || particle.y > canvas.height) {
+                                        particlesArray.splice(i, 1)
+                                    }
+
+                                    // 绘制两个点之间的连线
+                                    for (var j = i + 1; j < particlesArray.length; j++) {
+                                        dx = particlesArray[j].x - particlesArray[i].x
+                                        dy = particlesArray[j].y - particlesArray[i].y
+                                        dist = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
+                                        if (dist < 100) {
+                                            ctx.beginPath()
+                                            ctx.strokeStyle = "rgba(255, 255, 255, " + (1 - dist / 100)
+                                            ctx.moveTo(particlesArray[i].x, particlesArray[i].y)
+                                            ctx.lineTo(particlesArray[j].x, particlesArray[j].y)
+                                            ctx.closePath()
+                                            ctx.lineWidth = 1
+                                            ctx.stroke()
+                                        }
+                                    }
+                                }
+                            }
+
+                            function draw() {
+                                // 首先清空画布
+                                ctx.clearRect(0, 0, canvas.width, canvas.height)
+                                // 如果粒子数量小于规定数量，就生成新的粒子
+                                if (particlesArray.length < count) {
+                                    createParticle()
+                                }
+
+                                // 处理粒子
+                                handleParticle()
+                            }
+
+                            // 设置定时器
+                            setInterval(draw, 10)
+
+                        </script>
+            </div> -->
+            <div class="column">
+                <!-- <img src="/images/image1.png"> -->
+                <div class="chart1"></div>
+            </div>
+            <div class="column">
+                <div class="panel">
+                    <div class="chart2"></div>
+                    <table class="headtable">
+                        <tr class="head">
+                            <th colspan="3">预测结果</th>
+                        </tr>
+                    </table>
+                    <div id="rolling">
+                        <table>
+                            <tr>
+                                <th>用户</th>
+                                <th>欺诈概率</th>
+                                <th>欺诈类型</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0.3417</td>
+                                <td>非欺诈</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>0.0555</td>
+                                <td>非欺诈</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>0.2251</td>
+                                <td>非欺诈</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>0.8206</td>
+                                <td>综合欺诈</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>0.9723</td>
+                                <td>综合欺诈</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>0.7692</td>
+                                <td>综合欺诈</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>0.5528</td>
+                                <td>非必要住院</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>0.6739</td>
+                                <td>综合欺诈</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>0.8720</td>
+                                <td>综合欺诈</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>0.2381</td>
+                                <td>非欺诈</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>0.0224</td>
+                                <td>非欺诈</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>0.1922</td>
+                                <td>非欺诈</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>0.4592</td>
+                                <td>非欺诈</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>0.8845</td>
+                                <td>综合欺诈</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>0.7316</td>
+                                <td>综合欺诈</td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td>0.6594</td>
+                                <td>非必要用药</td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td>0.7648</td>
+                                <td>非必要用药</td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td>0.4536</td>
+                                <td>非欺诈</td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td>0.7486</td>
+                                <td>非必要用药</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>0.6644</td>
+                                <td>非必要住院</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <script>
+                        function rolling() {
+                            let i = 0;
+                            var moveScoll = function () {
+                                i++;
+                                // 如果滚动到底部，回到顶部再开始滚动
+                                if (i >= $("#rolling")[0].scrollHeight - $("#rolling").height()) {
+                                    i = 0;
+                                }
+                                console.log("move" + i);
+                                $("#rolling").scrollTop(i);
+                            };
+                            var timer = setInterval(moveScoll, 50);
+                            // 鼠标移入到rollingDiv，清定时器
+                            $("#rolling").mouseenter(function () {
+                                clearInterval(timer);
+                            });
+
+                            // 鼠标移出，重新开启定时器
+                            $("#rolling").mouseleave(function () {
+                                timer = setInterval(moveScoll, 50);
+                            });
+                        }
+
+                        rolling();
+                    </script>
+                </div>
+            </div>
+        </section>
+</body>
+
+</html>

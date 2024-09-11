@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/register.css">
+    <title>welcome</title>
+</head>
+<body>
+    <div class="container right-panel-active">
+        <!-- <h1>谛听鉴保</h1> -->
+        <div class="container_from  container_signup">
+            <form action="#" class="from" id="from1">
+                <h2 class="form_title">注册账号</h2>
+                <input type="tel" placeholder="电话" class="input" pattern="^1[0-9]{10}$"
+                    id="tel"><!--表格第一行电话,并且规定了电话号码必须要符合正确的位数，不然会提示错误-->
+                <input type="text" placeholder="用户名" class="input" id="regUN" /><!--使用iuput进行输入-->
+                <input type="password" placeholder="密码" class="input" id="regPW" />
+                <button class="btn" onclick="reg()" style="margin-left: 90px;">点击注册</button>
+    
+            </form>
+        </div>
+        <div class="container_from	container_signin"><!--登陆框的设计-->
+            <form action="#" class="from" id="from2">
+                <h2 class="   form_title">欢迎登录</h2>
+                <input type="text" placeholder="用户名" class="input" id="logUN" />
+                <input type="password" placeholder="密码" class="input" id="logPW">
+                <div class="container_text"><!--小方块打勾的设置-->
+                    <span>记住密码</span><input type="checkbox" name="rup" id="rup" />
+                    <span>自动登录</span><input type="checkbox" name="autoLogin" />
+                </div>
+                <a href="#" class="link">忘记密码?</a>
+                <button class="btn" onclick="log()" style="margin-left: 30px;">登录</button>
+            </form>
+        </div><!--想要控制注册页面和移动页面移动-->
+        <div class="container_overlay">
+            <div class="overlay">
+                <div class="overlay_panel  overlay_left">
+                    <button class="btn" id="signin">已经有账户了，直接登录</button>
+                </div>
+                <div class="overlay_panel overlay_right">
+                    <button class="btn" id="signup">没有账户？点击注册</button>
+                </div><!--我想要设置按钮来使他移动-->
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const signinBtn = document.getElementById("signin");
+            const signupBtn = document.getElementById("signup");
+            const container = document.querySelector(".container");/*用关键词来代表所选择的元素，方便下面进行操作书写*/
+
+            signinBtn.addEventListener("click", () => {
+                container.classList.remove("right-panel-active")
+            })/*清除掉’right-panel-active'的效果*/
+            signupBtn.addEventListener("click", () => {
+                container.classList.add("right-panel-active")
+            })/*click函数的简洁表达方式，达到点击按钮添加‘right-panel-active'自定义css的效果*/
+            // 登录函数
+            function log() {
+                let logUN = document.getElementById('logUN').value;
+                let logPW = document.getElementById('logPW').value;
+                //判断用户是否输入数据
+                if (logUN === "" && logPW === "") {
+                    alert("请输入您的用户名和密码！");
+                } else {
+                    //判断用户名是否已经注册
+                    if (logUN in localStorage) {
+                        //如果已经注册，获取用户密码
+                        let password = localStorage[logUN];
+                        //判断用户输入的密码和 注册的密码是否一致
+                        if (logPW === password) {
+                            alert("登录成功！");
+                            document.getElementById('logUN').value = "";
+                            document.getElementById('logPW').value = "";
+                            window.open('index.html');
+                        } else {
+                            alert("您的密码或者用户名出错了！");
+                        }
+                    } else {
+                        alert("我们不能找到这个账户，请先注册！");
+                    }
+                }
+            }
+
+            //注册方法
+            function reg() {
+                let username = document.getElementById('regUN').value;
+                let password = document.getElementById('regPW').value;
+                if (username === "") {
+                    alert("请输入您的用户名！");
+                } 
+                else if (password === ""){
+                    alert("请输入您的密码！");
+                }
+                else {
+                    //判断用户名是否已经存在
+                    if (username in localStorage) {
+                        alert("抱歉！该用户已经存在，请选择另外一个用户！");
+                        document.getElementById('regUN').value = "";
+                        document.getElementById('regPW').value = "";
+                    } else {
+                        //如果不存在，则将用户名和密码存到网页中
+                        localStorage.setItem(username, password);
+                        alert("注册成功！");
+                        //注册成功，隐藏注册页面，显示登录界面
+
+                    }
+                }
+            }  
+    </script>
+</body>
+</html>

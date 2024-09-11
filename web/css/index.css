@@ -1,0 +1,973 @@
+body {
+    position: relative;
+    font-family: 'microsoft yahei';
+    background-image: url(../images/homebackground.png);
+    background-repeat: no-repeat;
+    background-size: 1440px 730px;
+    overflow: hidden;
+}
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?tomleg');
+    src: url('../fonts/icomoon.eot?tomleg#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?tomleg') format('truetype'),
+        url('../fonts/icomoon.woff?tomleg') format('woff'),
+        url('../fonts/icomoon.svg?tomleg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+#content {
+    float: left;
+    position: absolute;
+    width: auto;
+    height: 580px;
+    top: 70px;
+    left: 140px;
+    right: 140px;
+    bottom: 70px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(85, 85, 85, 0.1);
+}
+#cleft {
+    float: left;
+    width: 225px;
+    height: 580px;
+    background: #343842;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+#cleft .cleft_img {
+    width: 120px;
+    height: 120px;
+    margin-left: 43px;
+}
+#cleft .cleft_top {
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    color: #fff;
+    font-size: 32px;
+    margin-left: 51px;
+    font-family: "Zhi Mang Xing", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+#cleft .cleft_text {
+    width: 100px;
+    height: 40px;
+    margin-left: 57px;
+}
+#cleft li {
+    width: 225px;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 30px;
+}
+#cleft li a {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: 500;
+    color: #c4c4c4;
+}
+#cleft li:not(:active):hover,
+#cleft li:focus {
+    background-color: rgba(163, 163, 163, 0.5);
+}
+#cleft li a:hover {
+    color: #fff;
+}
+#cleft .nav_img {
+    height: 55%;
+    width: 24px;
+    margin-right: 10px;
+}
+#cleft span {
+    display: block;
+    margin:10px 5px 8px 5px;
+    border: 1px solid #696969;
+}
+
+/* 设置右侧 */
+#cright {
+    float: left;
+    width: 918px;
+    height: 580px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+/* 页面一 */
+#cright .nav_1 {
+    position: relative;
+    display: block;
+    float: left;
+    width: 935px;
+    height: 580px;
+    background: #fff;
+}
+#cright .nav_1 img {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+#cright .nav_1 .nav_1top1 {
+    position: absolute;
+    top: 115px;
+    left: 50px;
+    font-size: 40px;
+    color: #282b33;
+}
+#cright .nav_1 .nav_1top2 {
+    position: absolute;
+    top: 185px;
+    left: 165px;
+    font-size: 62px;
+    font-family: "Zhi Mang Xing", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+#cright .nav_1 .nav_1top3 {
+    position: absolute;
+    top: 260px;
+    left: 50px;
+    font-size: 40px;
+    color: #282b33;
+}
+/* #cright .nav_1 .nav_1but1 {
+    position: absolute;
+    left: 50px;
+    bottom: 80px;
+    width: 100px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background-color: #516fb7;
+    font-size: 15px;
+    color: #fff;
+} */
+/* #cright .nav_1 .nav_1but2 {
+    position: absolute;
+    left: 200px;
+    bottom: 80px;
+    width: 100px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border:1px solid #516fb7;
+    font-size: 15px;
+    color: #516fb7;
+} */
+#cright .nav_1 .nav_1but1 {
+    /* position: relative; */
+    position: absolute;
+    left: 50px;
+    bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #183153;
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+}
+#cright .nav_1 .nav_1but2 {
+    /* position: relative; */
+    position: absolute;
+    left: 250px;
+    bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #183153;
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+}
+
+#cright .nav_1 .nav_1but1:after {
+    content: " ";
+    width: 0%;
+    height: 100%;
+    background: #ffd401;
+    position: absolute;
+    transition: all 0.4s ease-in-out;
+    right: 0;
+}
+#cright .nav_1 .nav_1but2:after {
+    content: " ";
+    width: 0%;
+    height: 100%;
+    background: #ffd401;
+    position: absolute;
+    transition: all 0.4s ease-in-out;
+    right: 0;
+}
+
+#cright .nav_1 .nav_1but1:hover::after {
+    right: auto;
+    left: 0;
+    width: 100%;
+}
+#cright .nav_1 .nav_1but2:hover::after {
+    right: auto;
+    left: 0;
+    width: 100%;
+}
+
+#cright .nav_1 .nav_1but1 span,
+#cright .nav_1 .nav_1but2 span {
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 18px 25px;
+    color: #fff;
+    font-size: 1.125em;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    z-index: 20;
+    transition: all 0.3s ease-in-out;
+}
+
+#cright .nav_1 .nav_1but1:hover span,
+#cright .nav_1 .nav_1but2:hover span {
+    color: #183153;
+    animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+/* 页面二 */
+#cright .nav_2 {
+    position: relative;
+    display: none;
+}
+#cright .nav_2 .nav_2top {
+    float: left;
+    width: 935px;
+    height: 130px;
+    background-color: #aeaeae;
+}
+#cright .nav_2 .nav_2top .nav_2title {
+    position: relative;
+    float: left;
+    width: 300px;
+    height: 60px;
+    line-height: 60px;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e1e1e1;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(140, 140, 141, 0.2);
+} 
+#cright .nav_2 .nav_2top .nav_2title span {
+    float: left;
+    width: 100px;
+    height: 60px;
+    margin: 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600px;
+}
+#cright .nav_2 .nav_2top .nav_2title .movebox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: rgb(65, 84, 122);
+    z-index: -999;
+    transition: .5s;
+}
+.active {
+    background-color: rgb(65, 84, 122);
+    color: #fff;
+    border-radius: 10px;
+}
+/* #cright .nav_2 .nav_2top .nav_2title span:nth-child(1):hover~.movebox {
+    left: 0;
+}
+#cright .nav_2 .nav_2top .nav_2title span:nth-child(2):hover~.movebox {
+    left: 100px;
+}
+#cright .nav_2 .nav_2top .nav_2title span:nth-child(3):hover~.movebox {
+    left: 200px;
+} */
+.nav_2 .nav_2bottom {
+    position: absolute;
+    top: 130px;
+    width: 935px;
+    height: 450px;
+    overflow: auto;
+    background-color: #f6f6f6;
+}
+/* 个人上传 */
+.nav_2 .nav_2bottom .nav_21 {
+    display: block;
+    float: left;
+}
+.nav_2 .nav_2bottom .nav_21 p {
+    margin-left: 20px;
+    margin-top: 45px;
+    margin-bottom: 20px;
+    font-size: 16px;
+} 
+.nav_2 .nav_2bottom .nav_21 p::before {
+    content: '\ea42';
+    font-family: icomoon;
+    font-size: 18px;
+    color: #264d84;
+    margin-right: 5px;
+}
+.nav_2 .nav_2bottom .nav_21 li {
+    float: left;
+    margin-right: 10px;
+    display: block;
+    width: 290px;
+    height: 75px;
+    margin-left: 10px;
+}
+.inputGroup {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 2em 0 2em 0;
+    max-width: 290px;
+    position: relative;
+}
+.inputGroup input {
+    font-size: 90%;
+    padding: 0.8em;
+    outline: none;
+    border: 1.5px solid #000000;
+    background-color: transparent;
+    border-radius: 2px;
+    width: 100%;
+}
+.inputGroup label {
+    font-size: 90%;
+    position: absolute;
+    left: 0;
+    padding: 0.8em;
+    margin-left: 0.5em;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: #264d84;
+}
+.inputGroup :is(input:focus, input:valid)~label {
+    transform: translateY(-50%) scale(.9);
+    margin: 0em;
+    margin-left: 1.3em;
+    padding: 0.4em;
+    background-color: #f1f1f1;
+}
+.inputGroup :is(input:focus, input:valid) {
+    border-color: rgb(120, 138, 186);
+}
+/* .nav_2 .nav_2bottom .nav_21 button {
+    width: 200px;
+    height: 40px;
+    margin-left: 350px;
+    margin-top: 50px;
+    font-size: 16px;
+    background-color: #839dd9;
+    color: #fff;
+} */
+.nav_2 .nav_2bottom .nav_21 button {
+    position: relative;
+    display: inline-block;
+    margin-top: 25px;
+    margin-left: 400px;
+    padding: 13px 27px;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: rgb(65, 84, 122);
+    background: transparent;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 2px solid rgb(65, 84, 122);
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 0 rgb(65, 84, 122);
+}
+.nav_2 .nav_2bottom .nav_21 button:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 rgb(65, 84, 122);
+}
+.nav_2 .nav_2bottom .nav_21 button:active {
+    transform: scale(0.9);
+}
+
+/* 批量上传 */
+.nav_2 .nav_2bottom .nav_22 {
+    display: none;
+}
+.nav_2 .nav_2bottom .nav_221 p {
+    margin-left: 20px;
+    margin-top: 45px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.nav_2 .nav_2bottom .nav_221 p::before {
+    content: '\ea42';
+    font-family: icomoon;
+    font-size: 18px;
+    color: #264d84;
+    margin-right: 5px;
+}
+.nav_2 .nav_2bottom .nav_221 img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 0 350px;
+}
+.nav_2 .nav_2bottom .nav_221 button {
+    display: block;
+    margin: 15px;
+    padding: 13px 27px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: rgb(65, 84, 122);
+    background: transparent;
+    margin-top: 20px;
+    margin-left: 386px;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 2px solid rgb(65, 84, 122);
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 0 rgb(65, 84, 122);
+}
+
+.nav_2 .nav_2bottom .nav_221 button:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 rgb(65, 84, 122);
+}
+
+.nav_2 .nav_2bottom .nav_221 button:active {
+    transform: scale(0.9);
+}
+.nav_2 .nav_2bottom .nav_222 {
+    display: none;
+}
+.nav_2 .nav_2bottom .nav_222 p {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 27px;
+    font-size: 16px;
+}
+.nav_2 .nav_2bottom .nav_222 p::before {
+    content: '\ea42';
+    font-family: icomoon;
+    font-size: 18px;
+    color: #264d84;
+    margin-right: 5px;
+}
+.nav_2 .nav_2bottom .nav_222 label{
+    display: block;
+    width: 200px;
+    height: 40x;
+    line-height: 40px;
+    font-size: 16px;
+    margin-left: 20px;
+}
+.nav_2 .nav_2bottom .nav_222 input {
+    width: 200px;
+    height: 35px;
+    color: #393838;
+    margin-left: 20px;
+    font-size: 14px;
+}
+.nav_2 .nav_2bottom .nav_222 .nav_2file {
+    height: 200px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    gap: 20px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgb(65, 84, 122);
+    background: rgb(242, 245, 248);
+    padding: 1.5rem;
+    margin-top: 12px;
+    margin-left: 309px;
+    border-radius: 10px;
+    box-shadow: 0px 48px 35px -48px rgb(65, 84, 122);
+}
+.nav_2 .nav_2bottom .nav_222 .nav_2file .nav_2icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_2 .nav_2bottom .nav_222 .nav_2file .nav_2icon svg {
+    height: 80px;
+    fill: rgb(65, 84, 122);
+}
+
+.nav_2 .nav_2bottom .nav_222 .nav_2file .nav_2text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_2 .nav_2bottom .nav_222 .nav_2file .nav_2text{
+    font-weight: 400;
+    color: rgb(65, 84, 122);
+}
+
+.nav_2 .nav_2bottom .nav_222 .nav_2file input {
+    display: none;
+}
+.nav_2 .nav_2bottom .nav_222 button {
+    display: block;
+    margin: 15px;
+    margin-bottom: 0;
+    padding: 13px 27px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: rgb(65, 84, 122);
+    background: transparent;
+    margin-top: 30px;
+    margin-left: 380px;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 2px solid rgb(65, 84, 122);
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 0 rgb(65, 84, 122);
+}
+.nav_2 .nav_2bottom .nav_222 button:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 rgb(65, 84, 122);
+}
+.nav_2 .nav_2bottom .nav_222 button:active {
+    transform: scale(0.9);
+}
+
+.nav_2 .nav_2bottom .nav_23 {
+    display: none;
+}
+.nav_2 .nav_2bottom .nav_23 h3{
+    margin-left: 40px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.nav_2 .nav_2bottom .nav_23 div {
+    float: left;
+    display: block;
+    width: 918px;
+    height: 45px;
+    line-height: 45px;
+    margin-top: 20px;
+}
+.nav_2 .nav_2bottom .nav_23 div span {
+    float: left;
+    display: block;
+    width: 4px;
+    height: 23px;
+    background-color: #285390;
+    margin-left: 39px;
+    margin-top: 11px;
+}
+.nav_2 .nav_2bottom .nav_23 div h2 {
+    float: left;
+    display: block;
+    width: 350px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 5px;   
+}
+.nav_2 .nav_2bottom .nav_23 h4 {
+    margin-left: 40px;
+    margin-top: 25px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.nav_2 .nav_2bottom .nav_23 p {
+    margin-left: 40px;
+    font-size: 16px;
+}
+/* 页面三 */
+#cright .nav_3 {
+    position: relative;
+    float: left;
+    display: none;
+    background-color: #f6f6f6;
+    width: 935px;
+    height: 580px;
+    overflow: auto;
+    z-index: 1;
+}
+#cright .nav_3 .nav_3top {
+    width: 918px;
+    height: 220px;
+    background-color: #ffffff;
+    background-image: url(../images/business.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#cright .nav_3 .nav_3title {
+    position: absolute;
+    display: block;
+    top: 185px;
+    left: 380px;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: rgb(65, 84, 122);
+    color: #fff;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+#cright .nav_3 .nav_3h {
+    float: left;
+    display: block;
+    width: 918px;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 20px;
+}
+
+#cright .nav_3 .nav_3h span {
+    float: left;
+    display: block;
+    width: 4px;
+    height: 24px;
+    background-color: #264d84;
+    margin-left: 39px;
+    margin-top: 13px;
+}
+#cright .nav_3 .nav_3h h2 {
+    float: left;
+    display: block;
+    width: 300px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 5px;
+}
+#cright .nav_3 .nav_3div {
+    float:left;
+    width: 878px;
+    margin-left: 40px;
+}
+#cright .nav_3 .nav_3business {
+    float: left;
+    width: 695px;
+}
+
+.nav_3 .nav_3div #contactbtn {
+    float: left;
+    padding: 13px 27px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: rgb(65, 84, 122);
+    background: transparent;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 2px solid rgb(65, 84, 122);
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 0 rgb(65, 84, 122);
+}
+
+.nav_3 .nav_3div #contactbtn:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 rgb(65, 84, 122);
+}
+
+.nav_3 .nav_3div #contactbtn:active {
+    transform: scale(0.9);
+}
+#cright > .nav_3 > p {
+    display: block;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 16px;
+}
+
+#cright .nav_3 ul {
+    display: block;
+    margin-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 16px;
+}
+
+#cright .nav_3 ul li::before {
+    content: '\e920';
+    font-family: icomoon;
+}
+#cright .nav_3 ul li a:hover{
+    color: rgb(75, 97, 143);
+}
+/* .nav_3 .nav_3contact {
+    position: absolute;
+    display: none;
+    float: left;
+    top: 290px;
+    left: 10px;
+    width: 900px;
+    height: 500px;
+    padding: 15px;
+    padding-left: 10px;
+    z-index: 999;
+    background: #fafcff;
+    border-radius: 8px;
+    border: 1px solid #183153;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.nav_3 .nav_3contact .contact_top {
+    float: left;
+    width: 860px;
+    height: 170px;
+    /* background-color: pink; 
+}
+.nav_3 .nav_3contact .contact_top img {
+    float: left;
+    width: 30px;
+    height: 30px;
+}
+.nav_3 .nav_3contact .contact_text {
+    float: left;
+    margin-left: 10px;
+    width: 800px;
+    height: 170px;
+    border: 1px solid #183153;
+    border-radius: 10px;
+}
+.nav_3 .nav_3contact .contact_text h1 {
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.nav_3 .nav_3contact .contact_text .nav_3p{
+    font-size: 17px;
+    color: #4a4a4a;
+    margin: 10px;
+}
+.nav_3 .nav_3contact .contact_text span {
+    display: inline-block;
+    width: 250px;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 17px;
+    color: #4a4a4a;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border:1px solid #4a4a4a;
+    border-radius: 10px;
+}
+.nav_3 .nav_3contact .contact_bottom {
+    float: left;
+    width: 810px;
+    height: 70px;
+    margin-top: 230px;
+    margin-left: 40px;
+    /* background-color: #d5c16f; 
+}
+.nav_3 .nav_3contact .contact_bottom div {
+    float: left;
+    display: block;
+    width: 650px;
+    height: 70px;
+    border: 1px solid #183153;
+    border-radius: 10px;
+}
+.nav_3 .nav_3contact .contact_bottom button {
+    float: left;
+    display: block;
+    width: 100px;
+    height: 50px;
+    padding: 8px 15px;
+    margin-top: 11px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    font-size: 16px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    color: rgb(65, 84, 122);
+    background: transparent;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 2px solid rgb(65, 84, 122);
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 0 rgb(65, 84, 122);
+}
+.nav_3 .nav_3contact .contact_bottom button:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 rgb(65, 84, 122);
+}
+
+.nav_3 .nav_3contact .contact_bottom button:active {
+    transform: scale(0.9);
+} */
+/* 页面四 */
+#cright .nav_4 {
+    position: relative;
+    display: none;
+    width: 935px;
+}
+#cright .nav_4 h1 {
+    padding-top: 20px;
+    padding-left: 10px;
+    font-size: 32px;
+    background: #fff;
+}
+#cright .nav_4 h3 {
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 16px;
+    height: 45px;
+    font-weight: 400;
+    color: #5c5c5c;
+    background: #fff;
+}
+#cright .nav_4 .nav_4chart1 {
+    position: absolute;
+    top: 105px;
+    width: 935px;
+    height: 265px;
+    padding-right: 40px;
+    background-color: #ffffff;
+}
+#cright .nav_4 .nav_4chart2 {
+    float: left;
+    position: absolute;
+    top: 355px;
+    margin-top: 15px;
+    width: 935px;
+    height: 210px;
+    background-color: #ffffff;
+}
+#cright .nav_4 .nav_4chart2 .nav_4chart2left {
+    float: left;
+    width: 590px;
+    height: 210px;
+    padding-left: 15px;
+    border: 1px solid rgb(176, 175, 175);
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
+    border-radius: 15px;
+}
+#cright .nav_4 .nav_4chart2 .nav_4chart2left:hover {
+    border: 1px solid rgb(65, 84, 122);
+    background: rgba(238, 238, 238, 0.58);
+    transform: scale(1.03);
+}
+#cright .nav_4 .nav_4chart2 .nav_4chart2left:active {
+    transform: scale(0.96) rotateZ(1.7deg);
+}
+#cright .nav_4 .nav_4chart2 .nav_4chart2right {
+    float: right;
+    width: 325px;
+    height: 210px;
+    border: 1px solid rgb(176, 175, 175);
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
+    border-radius: 15px;
+}
+#cright .nav_4 .nav_4chart2 .nav_4chart2right:hover {
+    border: 1px solid rgb(65, 84, 122);
+    background: rgba(238, 238, 238, 0.58);
+    transform: scale(1.03);
+}
+#cright .nav_4 .nav_4chart2 .nav_4chart2right:active {
+    transform: scale(0.96) rotateZ(1.7deg);
+}
+#cright .nav_4 .nav_4chart2 .nav_4chart2right h4 {
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    font-size: 20px;
+}
+#cright .nav_4 .nav_4chart2 .nav_4chart2right span {
+    display: block;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 20px;
+    font-size: 16px;
+}
+/* 页面六 */
+#cright .nav_6 {
+    display: none;
+    background-color: #f6f6f6;
+    width: 935px;
+    height: 580px;
+    overflow: auto;
+}
+#cright .nav_6 div {
+    float: left;
+    display: block;
+    width: 918px;
+    height: 50px;
+    line-height: 50px;
+}
+#cright .nav_6 div span {
+    float: left;
+    display: block;
+    width: 4px;
+    height: 24px;
+    background-color: #264d84;
+    margin-left: 39px;
+    margin-top: 13px;
+}
+#cright .nav_6 div h2 {
+    float: left;
+    display: block;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 5px;    
+}
+#cright .nav_6 .nav_6h {
+    margin-top: 20px;
+}
+#cright .nav_6 p {
+    display: block;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 16px;
+}
+#cright .nav_6 ul {
+    display: block;
+    margin-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 16px;
+}
+#cright .nav_6 ul li::before {
+    content: '\e920';
+    font-family: icomoon;
+}

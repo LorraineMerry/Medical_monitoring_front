@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医疗保险诈骗监测</title>
+    <link rel="icon" href="images/1.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@100..900&family=Rubik+Scribble&family=Zhi+Mang+Xing&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="js/jquery-3.7.1-min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/datarequest.js"></script>
+    <script src="js/filerequest.js"></script>
+    <script src="js/filedatarequest.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/background.js"></script>
+</head>
+<body>
+    <!-- 突出的小卡片 -->
+    <div>
+        <div id="content">
+            <!-- 内容左侧选择区域 -->
+            <ul id="cleft">
+                <img src="images/4.png" class="cleft_img">
+                <div class="cleft_top">谛听鉴保</div>
+                <li>
+                    <img src="images/home.png" class="nav_img">
+                    <a data-page="nav_1" href="#">官网首页</a></li>
+                <li>
+                    <img src="images/detection.png" class="nav_img">
+                    <a data-page="nav_2" href="#">开始监测</a></li>
+                <li>
+                    <img src="images/Insurance.png" class="nav_img">
+                    <a data-page="nav_3" href="#">商业保险</a></li>
+                <li>
+                    <img src="images/validationResults.png" class="nav_img">
+                    <a data-page="nav_4" href="#">结果展示</a></li>
+                <li>
+                    <img src="images/Insurance.png" class="nav_img">
+                    <a href="data.html">数据分析</a></li>
+                </li>
+                <span></span>
+                <li>
+                    <img src="images/register.png" class="nav_img">
+                    <!-- 登录注册小按钮 -->
+                    <a class="register" href="register.html" data-page="nav_5">登录</a>
+                </li>
+                <li>
+                    <img src="images/question.png" class="nav_img">
+                    <a data-page="nav_6" href="#">问题</a>
+                </li>
+                <li>
+                    <img src="images/about.png" class="nav_img">
+                    <a data-page="nav_7" href="#">关于我们</a>
+                </li>
+            </ul>
+            
+            <!-- 内容左侧选择的区域 -->
+            <div id="cright">
+                <!-- 第一页 -->
+                <div id="nav_1" class="page nav_1">
+                    <img src="images/background.png">
+                    <p class="nav_1top1">欢迎使用</p>
+                    <p class="nav_1top2">谛听鉴保</p>
+                    <p class="nav_1top3">--医疗保险欺诈监测系统</p>
+                    <button class="nav_1but1">
+                        <span>快速开始</span>
+                    </button>
+                    <button class="nav_1but2">
+                        <span>指导教程</span>
+                    </button>
+                </div>
+                <!-- 第二页 -->
+                <div id="nav_2" class="page nav_2">
+                    <!-- 第二页的头部 -->
+                    <div class="nav_2top">
+                        <div class="nav_2title">
+                            <span data-part="nav_21"><a href="#">单个监测</a></span>
+                            <span data-part="nav_22"><a href="#">批量检测</a></span>
+                            <span data-part="nav_23"><a href="#">其他信息</a></span>
+                            <div class="movebox"></div>
+                        </div>
+                    </div>
+                    <!-- 第二页的下方 -->
+                    <div class="nav_2bottom">
+                        <!-- 第一部分 -->
+                        <div id="nav_21" class="part nav_21">
+                            <p>请您在下方输入个人医疗保险数据，注意只能输入数值：（若对输入有疑惑，请点击其他信息进行查看）</p>
+                            <ul id="datapersonList">
+                                <li>
+                                    <div class="inputGroup">
+                                        <input type="text" required="" autocomplete="off" class="datapersonInput">
+                                        <label for="name">请输入一天去两家医院的天数：</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="inputGroup">
+                                        <input type="text" required="" autocomplete="off" class="datapersonInput">
+                                        <label for="name">请输入月就诊天数_MAX: </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="inputGroup">
+                                        <input type="text" required="" autocomplete="off" class="datapersonInput">
+                                        <label for="name">请输入月统筹金额_MAX: </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="inputGroup">
+                                        <input type="text" required="" autocomplete="off" class="datapersonInput">
+                                        <label for="name">请输入医院_就诊天数_MAX: </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="inputGroup">
+                                        <input type="text" required="" autocomplete="off" class="datapersonInput">
+                                        <label for="name">请输入顺序号_NN: </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="inputGroup">
+                                        <input type="text" required="" autocomplete="off" class="datapersonInput">
+                                        <label for="name">请输入ALL_SUM: </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="inputGroup">
+                                        <input type="text" required="" autocomplete="off" class="datapersonInput">
+                                        <label for="name">请输入药品费自费金额_SUM: </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="inputGroup">
+                                        <input type="text" required="" autocomplete="off" class="datapersonInput">
+                                        <label for="name">请输入贵重药品发生金额_SUM: </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="inputGroup">
+                                        <input type="text" required="" autocomplete="off" class="datapersonInput">
+                                        <label for="name">请输入治疗费发生金额_SUM: </label>
+                                    </div>
+                                </li>
+                            </ul>  
+                            <button type="button" id="submitpersonButton">点击提交</button>                          
+                        </div>
+                        <!-- 第二部分 -->
+                        <div id="nav_22" class="part nav_22">
+                            <div class="nav_221">
+                                <p>批量监测允许您上传医疗保险数据文件进行监测，并返回您结果文件和可视化报告。</p>
+                                <p>为了您更好的体验我们的服务，请先成为会员。（先扫描下方二维码，再点击成为会员按钮）</p>
+                                <img src="images/scan.jpg">
+                                <button id="nav_2changebtn">成为会员</button>
+                            </div>
+                            <div class="nav_222">
+                                <p>欢迎您成为会员！请开始尽情享用我们的服务吧！</p>
+                                <p>请您上传csv文件，包含的特征因子为['一天去两家医院的天数','月就诊天数_MAX','月统筹金额_MAX','医院_就诊天数_MAX','顺序号_NN', 'ALL_SUM', '药品费自费金额_SUM', '贵重药品发生金额_SUM', '治疗费发生金额_SUM']。</p>
+                                <label for="file" class="nav_2file">
+                                    <div class="nav_2icon">
+                                        <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H7C7.55228 23 8 22.5523 8 22C8 21.4477 7.55228 21 7 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V9C19 9.55228 19.4477 10 20 10C20.5523 10 21 9.55228 21 9V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM14 15.5C14 14.1193 15.1193 13 16.5 13C17.8807 13 19 14.1193 19 15.5V16V17H20C21.1046 17 22 17.8954 22 19C22 20.1046 21.1046 21 20 21H13C11.8954 21 11 20.1046 11 19C11 17.8954 11.8954 17 13 17H14V16V15.5ZM16.5 11C14.142 11 12.2076 12.8136 12.0156 15.122C10.2825 15.5606 9 17.1305 9 19C9 21.2091 10.7909 23 13 23H20C22.2091 23 24 21.2091 24 19C24 17.1305 22.7175 15.5606 20.9844 15.122C20.7924 12.8136 18.858 11 16.5 11Z"
+                                                    fill=""></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="nav_2text">点击上传</div>
+                                    <input id="file" type="file" accept=".csv">
+                                </label>
+                                <button type="button" id="resultButton">查看结果报告</button>
+                            </div>
+                        </div>
+                        <!-- 第三部分 -->
+                        <div id="nav_23" class="part nav_23">
+                            <h3>该页主要用于解释各类数据和分类含义，便于用户理解。</h3>
+                            <h4>医疗监测上传的各类数据解释：</h4>
+                            <div>
+                                <span></span>
+                                <h2>一天去两家医院的天数：</h2>
+                            </div> 
+                            <p>指的是在一个特定的时间段内（通常是一个月）内，患者在同一天内去了两家或更多家医院的天数。</p>
+                            <div>
+                                <span></span>
+                                <h2>月就诊天数_MAX：</h2>
+                            </div>
+                            <p>指在一个月内，患者前往医院就诊的最大天数。</p>
+                            <div>
+                                <span></span>
+                                <h2>月统筹金额_MAX：</h2>
+                            </div>
+                            <p>指的是在一个月内，患者通过医保或其他统筹支付方式支付的最大金额。（注：统筹金额通常指的是由政府、保险公司或其他医疗支付机构承担的医疗费用的一部分。）</p>
+                            <div>
+                                <span></span>
+                                <h2>医院_就诊天数_MAX：</h2>
+                            </div>
+                            <p>指的是在一个特定医院内，在一个月内，患者就诊的天数中的最大值。</p>
+                            <div>
+                                <span></span>
+                                <h2>顺序号_NN：</h2>
+                            </div>
+                            <p>指一个标识符或编号，用于对某些数据进行唯一标识或排序。在这里，我们将其认为是患者的挂号编号。</p>
+                            <div>
+                                <span></span>
+                                <h2>ALL_SUM：</h2>
+                            </div>
+                            <p>ALL_SUM：指的是某些变量或指标的总和。在医疗数据中，ALL_SUM可能表示对某些费用、药品数量或其他相关指标的总计。</p>
+                            <div>
+                                <span></span>
+                                <h2>药品费自费金额_SUM：</h2>
+                            </div>
+                            <p>药品费自费金额_SUM：指在一定时间段内，患者自己支付的药品费用的总和。</p>
+                            <div>
+                                <span></span>
+                                <h2>贵重药品发生金额_SUM：</h2>
+                            </div>
+                            <p>贵重药品发生金额_SUM：指的是在一定时间段内，患者用于购买贵重药品的费用的总和。（注：贵重药品通常指的是价格较高、治疗效果显著或用途特殊的药物。）</p>
+                            <div>
+                                <span></span>
+                                <h2>治疗费发生金额_SUM：</h2>
+                            </div>
+                            <p>治疗费发生金额_SUM：指在一定时间段内，患者用于支付治疗费用的总和。治疗费用包括诊断、治疗和康复等方面的费用。</p>
+                            <h4>欺诈监测各类分类解释：</h4>
+                            <div>
+                                <span></span>
+                                <h2>非必要用药：</h2>
+                            </div>
+                            <p>包括过度医疗，超限用药，串换药品。</p>
+                            <div>
+                                <span></span>
+                                <h2>非必要住院：</h2>
+                            </div>
+                            <p>包括挂床住院，诱导就医。</p>
+                            <div>
+                                <span></span>
+                                <h2>综合欺诈</h2>
+                            </div>
+                            <p>其他的不存在明显特征的欺诈。</p>
+                            <h4>医保骗保手段主要有以下几种：</h4>
+                            <div>
+                                <span></span>
+                                <h2>过度医疗，小病大治增加开销：</h2>
+                            </div>
+                            <p>有的医院通过不合理的检查、治疗、用药等方式推高医疗费用，既增加患者“负担”又增加医保支出。</p>
+                            <div>
+                                <span></span>
+                                <h2>挂床住院，虚假治疗骗取医保基金：</h2>
+                            </div>
+                            <p>部分医疗机构将不符合入院条件的患者收治入院，挂床报销门诊费用，甚至虚构治疗。</p>
+                            <div>
+                                <span></span>
+                                <h2>串换药品，拆分收费，巧立名目变相骗保：</h2>
+                            </div>
+                            <p>个别医疗机构采取串换更高收费的药品项目，或零售药店通过串换药品售卖日用品，甚至直接采取套现方式进行骗保。</p>
+                            <div>
+                                <span></span>
+                                <h2>超限用药，浪费资金又损害健康：</h2>
+                            </div>
+                            <p>为骗取医保基金，有的医院对患者使用非必须用药，并在试用期间频繁切换。</p>
+                            <div>
+                                <span></span>
+                                <h2>诱导就医，医患串通合谋骗保：</h2>
+                            </div>
+                            <p style="margin-bottom: 30px;">部分民营医疗机构以体检、回扣、返现等方式诱导参保人员住院，串通患者合谋骗保。</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第三页 -->
+                <div id="nav_3" class="page nav_3">
+                    <div class="nav_3top"></div>
+                    <div class="nav_3title">商业医疗保险</div>
+                    <div class="nav_3h">
+                        <span></span>
+                        <h2 class="nav_3t">商业医疗保险的欺诈监测</h2>
+                    </div>
+                    <div class="nav_3div">
+                        <div class="nav_3business">
+                            <p>我们提供了商业医疗保险的欺诈监测接口，旨在为医保集团和整体提供更加全面的医疗保险欺诈监测，维护社会的良好秩序，保障相关人员的权益。</p></div>
+                        <button id="contactbtn"><a href="api.html">获得接口</a></button>
+                    </div>
+                    <div class="nav_3h">
+                        <span></span>
+                        <h2>医疗保险</h2>
+                    </div>
+                    <p>医疗保险一般指基本医疗保险，是为了补偿劳动者因疾病风险造成的经济损失而建立的一项社会保险制度。通过用人单位与个人缴费，建立医疗保险基金，参保人员患病就诊发生医疗费用后，由医疗保险机构对其给予一定的经济补偿。</p>
+                    <div class="nav_3h">
+                        <span></span>
+                        <h2 class="nav_3t">商业医疗保险</h2>
+                    </div>
+                    <p>不同于基本医疗保险，商业医疗保险是人寿保险公司运用经济补偿手段经营的一种险种，是社会经济活动的一个方面，是由保险人与投保人双方按照自愿原则签订合同来实现的，人寿保险公司可以从中赢利.</p>
+                    <div class="nav_3h">
+                        <span></span>
+                        <h2>具体分类</h2>
+                    </div>
+                    <ul>
+                        <li><a href="#">普通医疗保险</a></li>
+                        <li><a
+                                href="https://baike.baidu.com/item/%E6%84%8F%E5%A4%96%E4%BC%A4%E5%AE%B3%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9%E9%87%91/12754590?fromtitle=%E6%84%8F%E5%A4%96%E4%BC%A4%E5%AE%B3%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9&fromid=1507535">意外伤害医疗保险</a>
+                        </li>
+                        <li><a
+                                href="https://baike.baidu.com/item/%E4%BD%8F%E9%99%A2%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9/6323313?fromModule=lemma_inlink">住院医疗保险</a>
+                        </li>
+                        <li><a
+                                href="https://baike.baidu.com/item/%E6%89%8B%E6%9C%AF%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9/7711340?fromModule=lemma_inlink">手术医疗保险</a>
+                        </li>
+                        <li><a href="#">特种医疗保险</a></li>
+                    </ul>
+                    <!-- 设置的聊天界面，最开始隐藏的 -->
+                    <!-- <div class="nav_3contact">
+                        <div class="contact_top">
+                            <img src="images/head.png">
+                            <div class="contact_text">
+                                <h1>您好，我是谛听鉴保！</h1>
+                                <p class="nav_3p">欢迎使用我，请问您有什么问题吗？可以尝试问我：</p>
+                                <span>怎么调用我们的接口</span>
+                                <span>商业保险调用我们的接口干什么</span>
+                                <span>你们的欺诈分类有哪些</span>
+                            </div>
+                        </div>
+                        <div class="contact_bottom">
+                            <div></div>
+                            <button>发送</button>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- 进行数据可视化 -->
+                <!-- 第四页 -->
+                <div id="nav_4" class="page nav_4">
+                    <h1>结果展示</h1>
+                    <h3>谛听鉴保——医疗保险监测欺诈结果展示</h3>
+                    <div class="nav_4chart1"></div>
+                    <div class="nav_4chart2">
+                        <div class="nav_4chart2left"></div>
+                        <div class="nav_4chart2right">
+                            <h4>各种欺诈概率情况：</h4>
+                            <span>虚构事实：</span>
+                            <span>隐瞒真相：</span>
+                            <span>过度医疗：</span>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                     var nav_4chart1 = echarts.init(document.querySelector('#nav_4 .nav_4chart1'));
+                     var option = {
+                                title: {
+                                    text: '欺诈检测结果分类',
+                                    left: 'center',
+                                    textStyle: {
+                                        fontSize: 22
+                                    }
+                                },
+                                tooltip: {
+                                    trigger: 'item',
+                                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                                },
+                                legend: {
+                                    orient: 'vertical',
+                                    left: 'right',
+                                    top: '40%', // 顶部居中位置
+                                    data: ['非欺诈', '与医院工作人员合谋', '服务未提供但已索赔', '串换诊疗项目和药物'],
+                                    fontStyle: {
+                                        fontSize: 18
+                                    }
+                                },
+                                series: [
+                                    {
+                                        name: '类型',
+                                        type: 'pie',
+                                        radius: '65%',
+                                        center: ['50%', '55%'],
+                                        data: [
+                                            { value: 335, name: '非欺诈' , itemStyle: { color: 'rgb(65, 84, 122)' } },
+                                            { value: 310, name: '与医院工作人员合谋' ,  itemStyle: { color: '#f8e287' } },
+                                            { value: 234, name: '服务未提供但已索赔' , itemStyle: { color: '#c23531' } },
+                                            { value: 135, name: '串换诊疗项目和药物' , itemStyle: { color: '#d48265' } },
+                                        ],
+                                        emphasis: {
+                                            itemStyle: {
+                                                shadowBlur: 10,
+                                                shadowOffsetX: 0,
+                                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                            }
+                                        }
+                                    }
+                                ]
+                            };
+                        nav_4chart1.setOption(option);
+                     //初始化实例
+                        var nav_4chart2 = echarts.init(document.querySelector('#nav_4 .nav_4chart2left'));
+                        //进行相关配置
+                        var option2 = {
+                            color: ['rgb(65, 84, 122)'],
+                            tooltip: {
+                                trigger: 'axis',
+                                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                                }
+                            },
+                            grid: {
+                                left: '3%',
+                                right: '4%',
+                                bottom: '3%',
+                                containLabel: true
+                            },
+                            xAxis: {
+                                type: 'category',
+                                data: ['虚构事实', '隐瞒真相', '过度医疗'],
+                                axisTick: {
+                                    alignWithLabel: true
+                                }
+                            },
+                            yAxis: {
+                                type: 'value'
+                            },
+                            series: [{
+                                data: [0.5, 0.3, 0.2],
+                                type: 'bar',
+                                showBackground: true,
+                                backgroundStyle: {
+                                    color: 'rgba(220, 220, 220, 0.8)'
+                                },
+                                // animation:true 
+                                itemStyle: {
+                                    emphasis: {
+                                        barBorderRadius: 7 // 鼠标悬停时柱形的圆角效果
+                                    }
+                                },
+                                emphasis: {
+                                    focus: 'series'
+                                },
+                                z: 10, // 提高柱形的层级以确保其位于其他图形之上
+                                animation: false, // 初始禁用动画
+                                onMouseOver: function (params) {
+                                    var dataIndex = params.dataIndex;
+                                    var seriesIndex = params.seriesIndex;
+                                    var chart = this.getChart();
+                                    chart.dispatchAction({
+                                        type: 'showTip',
+                                        seriesIndex: seriesIndex,
+                                        dataIndex: dataIndex
+                                    });
+                                    chart.dispatchAction({
+                                        type: 'highlight',
+                                        seriesIndex: seriesIndex,
+                                        dataIndex: dataIndex
+                                    });
+                                    chart.dispatchAction({
+                                        type: 'dataZoom',
+                                        startValue: 0,
+                                        endValue: dataIndex + 1
+                                    });
+                                }
+                            }]
+                        };
+                        //把配置给实例对象
+                        nav_4chart2.setOption(option2);
+                </script>
+                <!-- 第六页 问题 -->
+                <div id="nav_6" class="page nav_6">
+                    <div class="nav_6h">
+                        <span></span>
+                        <h2>指导</h2>
+                    </div>
+                    <p>欢迎使用谛听鉴保！本指南将帮助您快速了解如何使用我们的系统进行单个监测和批量监测，并解释商业保险和结果展示功能。如果您有任何疑问或需要帮助，请随时联系我们的客户支持团队。</p>
+                    <div class="nav_6h">
+                        <span></span>
+                        <h2>单个监测</h2>
+                    </div>
+                    <p>个人监测功能允许您上传个人医疗保险数据并进行检测。请按照以下步骤操作：</p>
+                    <ul>
+                        <li>点击页面左侧导航栏的“开始监测”按钮。</li>
+                        <li>选择上方“单个监测”选项。</li>
+                        <li>根据页面要求分别上传您的医疗保险数据。</li>
+                        <li>请点击左侧导航栏的“结果展示”查看您的可视化报告。</li>
+                    </ul>
+                    <div class="nav_6h">
+                        <span></span>
+                        <h2>批量监测</h2>
+                    </div>
+                    <p>批量监测功能允许您上传医疗保险数据文件并进行检测。请按照以下步骤操作：</p>
+                    <ul>
+                        <li>点击页面左侧导航栏的“开始监测”按钮。</li>
+                        <li>选择上方“批量监测”选项。</li>
+                        <li>根据页面要求上传您的医疗保险数据文件。</li>
+                        <li>请于当前页面下载您的批量监测结果文件。</li>
+                        <li>请点击左侧导航栏的“结果展示”查看您的可视化报告。</li>
+                    </ul>
+                    <div class="nav_6h">
+                        <span></span>
+                        <h2>其他信息</h2>
+                    </div>
+                    <p>其他信息功能允许您理解监测页面所需上传的数据意思。请点击监测页面上方的“其他信息”具体查看。</p>
+                    <div class="nav_6h">
+                        <span></span>
+                        <h2>商业保险</h2>
+                    </div>
+                    <p>商业保险功能允许您了解商业保险的相关信息，并可能提供商业保险公司可调用的接口和联系我们。请点击页面左侧导航栏的“商业保险”按钮以获取更多信息。</p>
+                    <div class="nav_6h">
+                        <span></span>
+                        <h2>结果展示</h2>
+                    </div>
+                    <p>结果展示页面将显示单个监测和批量监测的结果。您可以在此页面查看详细的分析结果，并根据需要下载或导出数据。</p>
+                    <div class="nav_6h">
+                        <span></span>
+                        <h2>登录</h2>
+                    </div>
+                    <p>如果您是新用户，请点击页面右侧的“注册”按钮以创建新账户。如果您已经拥有账户，请点击左侧“登录”按钮以登录您的账户。</p>
+                    <div class="nav_6h">
+                        <span></span>
+                        <h2>关于我们</h2>
+                    </div>
+                    <p style="margin-bottom: 30px;">关于我们页面提供有关我们团队和项目的详细信息。请点击页面左侧导航栏的“关于我们”链接以访问此页面。</p>
+                </div> 
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

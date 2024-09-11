@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API指导界面</title>
+    <link rel="icon" href="images/1.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/api.css">
+</head>
+<body>
+    <div>
+        <div class="container">
+            <h1>API接口文档</h1>
+        
+            <div class="point">
+                <h2>1. 上传并处理报告</h2>
+                <p>该端点允许用户上传CSV文件进行欺诈检测，并返回处理后的报告数据和结果文件。</p>
+
+                <h3>使用postman，成功样例展示</h3>
+                <img src="images/post.png">
+
+                <h3>URL</h3>
+                <pre>POST http://127.0.0.1:8000/api/report</pre>
+        
+                <h3>请求参数</h3>
+                <ul>
+                    <li>file：上传的CSV文件</li>
+                </ul>
+        
+                <h3>请求头</h3>
+                <pre>Content-Type: multipart/form-data</pre>
+        
+                <div class="response">
+                    <h3>响应</h3>
+                    <h4>200 OK</h4>
+                    <pre>Content-Type: application/json</pre>
+                    <p>Body:</p>
+                    <pre>
+                        {
+                            "message": "文件处理完成",
+                            "report_data": {
+                            "title": "欺诈报告",
+                                "content": "这是一个欺诈报告的示例内容。
+                                 各类欺诈的预测概率占比如下：
+                                 非欺诈: 0.65
+                                 综合欺诈: 0.12
+                                 非必要用药: 0.20
+                                 非必要住院: 0.03",
+
+                            },
+                        "processed_file": "processed_report.csv"
+                        }
+                    </pre>
+        
+                    <h4 class="error">400 Bad Request</h4>
+                    <pre>Content-Type: application/json</pre>
+                    <p>Body:</p>
+                    <pre>
+                        {
+                            "error": "没有文件上传"
+                        }
+                    </pre>
+        
+                    <p class="error">或</p>
+        
+                    <pre>
+                        {
+                            "error": "没有选择文件"
+                        }
+                    </pre>
+        
+                    <p class="error">或</p>
+        
+                    <pre>
+                        {
+                            "error": "只允许上传CSV文件"
+                        }
+                    </pre>
+        
+                    <h4 class="error">500 Internal Server Error</h4>
+                    <pre>Content-Type: application/json</pre>
+                    <p>Body:</p>
+                    <pre>
+                        {
+                            "error": "An error occurred while processing the file"
+                         }
+                    </pre>
+                </div>
+            </div>
+        
+            <div class="point">
+                <h2>2. 下载处理后的文件</h2>
+                <p>该端点允许用户下载处理后的CSV文件。</p>
+        
+                <h3>使用postman，成功样例展示</h3>
+                <img src="images/get.png">
+
+                <h3>URL</h3>
+                <pre>GET http://127.0.0.1:8000/api/download/&lt;path:filename&gt;</pre>
+        
+                <h3>参数</h3>
+                <pre>filename：处理后的CSV文件名</pre>
+        
+                <div class="response">
+                    <h3>响应</h3>
+                    <pre>该文件以附件形式下载</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

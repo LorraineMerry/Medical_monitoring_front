@@ -1,0 +1,35 @@
+/* 把我们所有标签的内外边距清零 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* em和i斜体的文字不倾斜 */
+em,
+i {
+    font-style: normal;
+}
+
+/* 去掉li的小圆点 */
+li {
+    list-style: none;
+}
+
+img {
+    /* border 0照顾低版本浏览器 如果图片外边包含了链接会有边框的问题  */
+    border: 0;
+    /* 取消图片底侧有空白缝隙的问题 */
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input {
+    border: 0;
+    outline: none;
+}
